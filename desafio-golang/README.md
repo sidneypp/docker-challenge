@@ -5,12 +5,12 @@
 
 
 A imagem gerada possui 1.77MB, sem o uso de multi-stage a imagem seria de 315MB.
-https://hub.docker.com/r/sidneypp/codeeducation
+https://hub.docker.com/r/sidneypp/desafio-golang
 
 ### 2. Quando executarmos:
 
 ```sh
- docker run <seu-user>/codeeducation 
+ docker run <seu-user>/desafio-golang 
  ```
 
 ### 3. Temos que ter o seguinte resultado: ```Code.education Rocks!```
