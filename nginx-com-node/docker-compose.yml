@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  app:
+    container_name: app
+    build: .
+    networks:
+      - app-network
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+  nginx:
+    container_name: nginx
+    image: nginx
+    ports:
+      - 8080:80
+    networks:
+      - app-network
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  node_modules:
