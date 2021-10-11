@@ -15,11 +15,13 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-COPY package*.json ./
+COPY package.json yarn.lock ./
 
 RUN yarn
 
 COPY . .
+
+RUN yarn prisma generate
 
 RUN chown -R node:node /usr/src/app
 

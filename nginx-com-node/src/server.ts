@@ -1,5 +1,5 @@
 import express from 'express';
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, people } from '@prisma/client'
 import { uniqueNamesGenerator, Config, names } from 'unique-names-generator'
 
 const server = express();
@@ -16,7 +16,7 @@ server.get('/', async (request, response) => {
     }
   })
   const peoples = await prisma.people.findMany()
-  peoples.forEach(people => {
+  peoples.forEach((people: people) => {
     htmlResponse += `<li>${people.name}</li>`
   })
   return response.send(htmlResponse);
